@@ -37,5 +37,10 @@ public class UserController {
         return roleService.findAll();
     }
 
-//    áhgdhjagfhjgaf
+    @GetMapping("/test")
+    public List<Role> findAllRole1(){
+        return roleService.findAll();
+    }
+
+
 }
