@@ -22,16 +22,25 @@ public class UserController {
     @Autowired
     RoleServiceImpl roleService;
 
-
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteUser(@PathVariable Long id) {
+        Optional<User> users = userService.findById(id);
+        if (!users.isPresent()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        userService.deleteById(users.get().getId());
+        return new ResponseEntity<>(new ResponseMessage("Delete Success!"), HttpStatus.OK);
+    }
 
     @GetMapping("/roles")
     public List<Role> findAllRole(){
         return roleService.findAll();
     }
 
-
-
-
+    @GetMapping("/test")
+    public List<Role> findAllRole1(){
+        return roleService.findAll();
+    }
 
 
 }
