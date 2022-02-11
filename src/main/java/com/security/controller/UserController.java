@@ -38,8 +38,11 @@ public class UserController {
     }
 
 
-//    @GetMapping("/roles")
-//    public List<Role> findAllRole(){
-//        return roleService.findAll();
-//    }
+    @GetMapping("/test1")
+    public List<Role> findAllRole2(){
+        return roleService.findAll();
+    }
+
+
+
 }
